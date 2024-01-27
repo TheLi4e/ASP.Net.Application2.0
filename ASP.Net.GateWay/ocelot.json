@@ -1,0 +1,57 @@
+﻿{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/Main/{method}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7121
+        }
+      ],
+      "UpstreamPathTemplate": "/Main/{method}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "SwaggerKey": "main"
+    },
+    {
+      "DownstreamPathTemplate": "/Storage/{method}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7181
+        }
+      ],
+      "UpstreamPathTemplate": "/Storage/{method}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "SwaggerKey": "storage"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:6666"
+  },
+  "SwaggerEndPoints": [
+    {
+      "Key": "main",
+      "TransformByOcelotConfig": false,
+      "Config": [
+        {
+          "Name": "Main Api",
+          "Version": "v1",
+          "Url": "https://localhost:7121/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "storage",
+      "TransformByOcelotConfig": false,
+      "Config": [
+        {
+          "Name": "Storage Api",
+          "Version": "v1",
+          "Url": "https://localhost:7181/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
+}
